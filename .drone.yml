@@ -1,0 +1,18 @@
+kind: pipeline
+name: default
+
+  - name: docker-latest-build
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+      repo: jerheij/drone-codecheck
+      no_cache: true
+      tags: latest
+    when:
+      event:
+        - push
+      branch:
+        - master
