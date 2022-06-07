@@ -1,6 +1,13 @@
 #!/bin/ash
 
+echo
 echo "Files to shellcheck:"
+echo
+
 find /drone/src/ -iname "*.sh"
 
-find /git/binaries -iname "*.sh" -exec shellcheck --severity=warning --format=gcc  {} \;
+echo
+echo "Running shellchecks..."
+echo
+
+find /drone/src/ -iname "*.sh" -exec shellcheck --severity=warning --format=gcc  {} \;
